@@ -42,8 +42,8 @@ const page = async () => {
   return (
     <div className="space-y-8 mt-12">
       <div className="flex flex-col space-y-2">
-        <h1 className="text-3xl font-bold">Time Off Requests</h1>
-        <p className="text-gray-500">View and manage all time off requests</p>
+        <h1 className="text-3xl font-bold">Leave requests</h1>
+        <p className="text-gray-500">View and manage all Leave requests</p>
       </div>
       <Card>
         <CardContent className="p-6">

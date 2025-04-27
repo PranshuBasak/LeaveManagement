@@ -1,7 +1,7 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse} from "next/server";
 
-const isPublicRoute = createRouteMatcher(['/',"/features", "/api/webhooks/(.*)","/api/web","/api/webhooks"]);
+const isPublicRoute = createRouteMatcher(['/',"/features","/tutorial","/pricing", "/api/webhooks/(.*)","/api/web","/api/webhooks"]);
 const isOnboardingRoute = createRouteMatcher(['/onboarding'])
 const isAdminRoute = createRouteMatcher(["/admin", "/admin/(.*)"])
 const isEmployeeRoute = createRouteMatcher(["/employee", "/employee/(.*)"])

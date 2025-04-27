@@ -74,7 +74,7 @@ const ApproveRejectButtons = ({ id }: { id: string }) => {
             <DialogDescription>
               {actionType === "APPROVED"
                 ? "Add any notes for the employee regarding this approved request"
-                : "Please provide a reason for rejecting this time off request"}
+                : "Please provide a reason for rejecting this Leave request"}
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4 py-4">

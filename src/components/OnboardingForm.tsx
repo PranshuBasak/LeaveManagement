@@ -139,7 +139,6 @@ const OnboardingForm = ({
     if (canRedirect) {
       console.log("Redirecting to employee");
       toast.success("Onboarding completed successfully.");
-
     }
   };
 
@@ -177,7 +176,7 @@ const OnboardingForm = ({
       );
     } finally {
       setIsSubmitting(false);
-      }
+    }
 
     if (canRedirect) {
       console.log("Redirecting to admin");
@@ -199,16 +198,16 @@ const OnboardingForm = ({
           Complete your account setup
         </CardTitle>
         <CardDescription>
-          Weclome to TimeOffer! Let&apos;s get you onboarded.
+          Weclome to LeaveManagement! Let&apos;s get you onboarded.
         </CardDescription>
         <Button
-                  type="submit"
-                  className={`w-full ${role ? "" : "hidden"}`}
-                  onClick={() => {
-                    window.location.reload();
-                  }}
-                >
-                  {role ? "Refresh If not redirected" : ""}
+          type="submit"
+          className={`w-full ${role ? "" : "hidden"}`}
+          onClick={() => {
+            window.location.reload();
+          }}
+        >
+          {role ? "Refresh If not redirected" : ""}
         </Button>
       </CardHeader>
       <CardContent>

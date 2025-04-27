@@ -50,12 +50,12 @@ const page = async () => {
     <div className="space-y-8 mt-12">
       <div className="flex flex-col space-y-2">
         <h1 className="text-3xl font-bold">Employee Dashboard.</h1>
-        <p className="text-gray-500">Manage your time off requests.</p>
+        <p className="text-gray-500">Manage your Leave requests.</p>
       </div>
       <div className="grid gap-6 lg:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>Time Off Requests</CardTitle>
+            <CardTitle>Leave requests</CardTitle>
             <CardDescription>Manage your time off</CardDescription>
           </CardHeader>
           <CardContent>

@@ -429,12 +429,12 @@ export async function updateTimeOffRequestStatus({
     });
 
     if (!request) {
-      throw new Error("Time off request not found in database");
+      throw new Error("Leave request not found in database");
     }
 
     if (request.employee.companyId !== user.companyId) {
       throw new Error(
-        "You can only update time off requests for your own company"
+        "You can only update Leave requests for your own company"
       );
     }
 
@@ -466,6 +466,6 @@ export async function updateTimeOffRequestStatus({
     return updatedRequest;
   } catch (error) {
     console.error(error);
-    throw new Error("Failed to update time off request status");
+    throw new Error("Failed to update Leave request status");
   }
 }

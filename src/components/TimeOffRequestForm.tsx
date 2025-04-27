@@ -249,7 +249,7 @@ const TimeOffRequestForm = ({
           "MMM d, yyyy"
         );
         setDateOverlapError(
-          `This request overlaps with your existing ${conflictingRequest.type} time off request from ${formattedStart} to ${formattedEnd}.`
+          `This request overlaps with your existing ${conflictingRequest.type} Leave request from ${formattedStart} to ${formattedEnd}.`
         );
       } else {
         setDateOverlapError(null);
@@ -280,14 +280,14 @@ const TimeOffRequestForm = ({
     }
 
     try {
-      // cALL server action to create time off request
+      // cALL server action to create Leave request
       const timeOffRequestData = await createTimeOffRequest(formData);
       if (timeOffRequestData) {
-        toast.success("Time off request created successfully");
+        toast.success("Leave request created successfully");
         router.push("/employee/my-requests");
       }
     } catch (error) {
-      console.error("Error creating time off request:", error);
+      console.error("Error creating Leave request:", error);
       setError("An error occurred while creating the request");
       toast.error("An error occurred while creating the request");
     } finally {
@@ -298,9 +298,9 @@ const TimeOffRequestForm = ({
   return (
     <div className="space-y-8 mt-12">
       <div className="flex flex-col space-y-2">
-        <h1 className="text-3xl font-bold">New time off request</h1>
+        <h1 className="text-3xl font-bold">New Leave request</h1>
         <p className="text-gray-500">
-          Submit a new time off request to your manager
+          Submit a new Leave request to your manager
         </p>
       </div>
       {existingRequests?.length > 0 && (
@@ -662,7 +662,7 @@ const TimeOffRequestForm = ({
                     <FormLabel>Reason (optional)</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Enter a reason for your time off request"
+                        placeholder="Enter a reason for your Leave request"
                         className="min-h-[80px]"
                         {...field}
                       />

@@ -62,8 +62,8 @@ const page = async ({
     <div className="space-y-8 mt-12">
       <div className="flex items-center justify-between">
         <div className="flex flex-col space-y-2">
-          <Link href="/admin/time-off-requests">Back to Time Off Requests</Link>
-          <h1 className="text-3xl font-bold">Time off request details</h1>
+          <Link href="/admin/time-off-requests">Back to Leave requests</Link>
+          <h1 className="text-3xl font-bold">Leave request details</h1>
         </div>
         {request.status === "PENDING" && <ApproveRejectButtons id={id} />}
       </div>

@@ -113,8 +113,8 @@ const page = async () => {
       <div className="grid gap-6 md:grid-cols-3">
         <Card>
           <CardHeader>
-            <CardTitle>Time Off Requests</CardTitle>
-            <CardDescription>Manage employee time off requests</CardDescription>
+            <CardTitle>Leave requests</CardTitle>
+            <CardDescription>Manage employee Leave requests</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="flex flex-col space-y-2">

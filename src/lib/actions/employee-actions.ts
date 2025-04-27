@@ -44,7 +44,7 @@ export async function createTimeOffRequest(formData: FormData) {
 
     return timeOffRequest;
   } catch (error) {
-    console.error("Error creating time off request:", error);
+    console.error("Error creating Leave request:", error);
     throw new Error("An error occurred while creating the request");
   }
 }
