@@ -8,11 +8,7 @@ import ApproveRejectButtons from "@/components/ApproveRejectButtons";
 
 const page = async ({
   params,
-}: {
-  params: {
-    id: string;
-  };
-}) => {
+}: {params: Promise<{ id: string }>}) => {
   const { userId } = await auth();
 
   if (!userId) {
