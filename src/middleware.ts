@@ -22,9 +22,9 @@ const isEmployeeRoute = createRouteMatcher(["/employee", "/employee/(.*)"]);
 export default clerkMiddleware(async (auth, req: NextRequest) => {
   const { userId, sessionClaims, redirectToSignIn } = await auth();
 
-  console.log(sessionClaims?.metadata);
+  // console.log("session Metadata",sessionClaims?.metadata);
 
-  console.log(req.nextUrl.searchParams.get("onboardingCompleted"));
+  // console.log("SearchParam Onboarding Completed",req.nextUrl.searchParams.get("onboardingCompleted"));
 
   if (
     userId &&
