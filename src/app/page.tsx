@@ -2,13 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { CalendarDays, Clock, CheckCircle, Users, Shield } from "lucide-react";
-import { SignInButton } from "@clerk/nextjs";
-import { UserButton } from "@clerk/nextjs";
-import { SignedIn } from "@clerk/nextjs";
-import { SignedOut } from "@clerk/nextjs";
+import { CalendarDays,  CheckCircle, Users, Shield } from "lucide-react";
+// import { SignInButton } from "@clerk/nextjs";
+// import { UserButton } from "@clerk/nextjs";
+// import { SignedIn } from "@clerk/nextjs";
+// import { SignedOut } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default async function Home() {
   const { userId, sessionClaims } = await auth();
@@ -21,42 +23,7 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-16 flex items-center justify-between border-b">
-        <Link href="/" className="flex items-center">
-          <Clock className="h-6 w-6 mr-2 text-blue-600" />
-          <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-            LeaveManagement
-          </span>
-        </Link>
-        <nav className="flex gap-4 sm:gap-6">
-          <Link
-            href="/features"
-            className="text-sm font-medium hover:underline underline-offset-4"
-          >
-            Features
-          </Link>
-          <Link
-            href="/tutorial"
-            className="text-sm font-medium hover:underline underline-offset-4"
-          >
-            How it works
-          </Link>
-          <Link
-            href="/pricing"
-            className="text-sm font-medium hover:underline underline-offset-4"
-          >
-            Pricing
-          </Link>
-        </nav>
-        <div className="flex gap-4">
-          <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
-        </div>
-      </header>
+      <Header />
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-b from-white to-blue-50">
           <div className="container px-4 md:px-6">
@@ -173,8 +140,8 @@ export default async function Home() {
                     <div className="space-y-2">
                       <h3 className="text-xl font-bold">Team Calendar View</h3>
                       <p className="text-gray-600 dark:text-gray-400">
-                        See your entire team`&apos;s schedule at a glance with our
-                        comprehensive calendar view. Plan ahead and avoid
+                        See your entire team`&apos;s schedule at a glance with
+                        our comprehensive calendar view. Plan ahead and avoid
                         scheduling conflicts effortlessly.
                       </p>
                     </div>
@@ -210,19 +177,7 @@ export default async function Home() {
           </div>
         </section>
       </main>
-      <footer className="border-t bg-white py-6">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <div className="flex items-center gap-2">
-              <Clock className="h-5 w-5 text-blue-600" />
-              <span className="text-lg font-semibold">LeaveManagement</span>
-            </div>
-            <p className="text-sm text-gray-500">
-              © 2025 LeaveManagement. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

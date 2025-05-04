@@ -8,44 +8,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Clock, Check } from "lucide-react";
+import { Check } from "lucide-react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function PricingPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-16 flex items-center justify-between border-b">
-        <Link href="/" className="flex items-center">
-          <Clock className="h-6 w-6 mr-2 text-blue-600" />
-          <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-            LeaveManagement
-          </span>
-        </Link>
-        <nav className="flex gap-4 sm:gap-6">
-          <Link
-            href="/features"
-            className="text-sm font-medium hover:underline underline-offset-4"
-          >
-            Features
-          </Link>
-          <Link
-            href="/tutorial"
-            className="text-sm font-medium hover:underline underline-offset-4"
-          >
-            How it works
-          </Link>
-          <Link
-            href="/pricing"
-            className="text-sm font-medium underline underline-offset-4"
-          >
-            Pricing
-          </Link>
-        </nav>
-        <div className="flex gap-4">
-          <Button asChild size="sm">
-            <Link href="/sign-in">Sign In</Link>
-          </Button>
-        </div>
-      </header>
+      <Header />
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 bg-gradient-to-b from-white to-blue-50">
           <div className="container px-4 md:px-6">
@@ -297,19 +267,7 @@ export default function PricingPage() {
           </div>
         </section>
       </main>
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-gray-500 dark:text-gray-400">
-          © 2023 LeaveManagement. All rights reserved.
-        </p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
-            Terms of Service
-          </Link>
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
-            Privacy
-          </Link>
-        </nav>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -9,11 +9,14 @@ const isPublicRoute = createRouteMatcher([
   "/api/webhooks/(.*)",
   "/api/web",
   "/api/webhooks",
+  "/api/contact",
   "/contact",
   "/terms",
   "/privacy",
   "/404",
   "/not-found",
+  "/sign-in",
+  "/sign-up",
 ]);
 const isOnboardingRoute = createRouteMatcher(["/onboarding"]);
 const isAdminRoute = createRouteMatcher(["/admin", "/admin/(.*)"]);
