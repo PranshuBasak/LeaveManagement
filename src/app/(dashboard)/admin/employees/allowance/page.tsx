@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/table";
 import prisma from "@/lib/prisma";
 import AllowanceForm from "@/components/AllowanceForm";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const page = async () => {
   const { userId } = await auth();
@@ -54,7 +56,13 @@ const page = async () => {
     <div className="space-y-8 mt-12">
       <div className="flex flex-col space-y-6">
         <div className="flex flex-col space-y-2">
-          <h1 className="text-3xl font-bold">Holiday allowance management</h1>
+          <span className="flex justify-between ">
+            <h1 className="text-3xl font-bold">Holiday allowance management</h1>
+
+            <Button asChild variant={"outline"}>
+              <Link href={"/admin/employees"}>Back to dashboard</Link>
+            </Button>
+          </span>
           <p className="text-gray-500">Manage employee holiday allowances</p>
         </div>
         <Card>
@@ -89,8 +97,11 @@ const page = async () => {
                         <TableCell>
                           <AllowanceForm
                             employeeId={employee.id}
-                            employeeName={`${employee.firstName} ${employee.lastName}`}
-                            currentAllowance={employee.availableDays}
+                            firstName={employee.firstName}
+                            lastName={employee.lastName}
+                            department={employee.department ?? ""}
+                            role={employee.role ?? ""}
+                            availableDays={employee.availableDays}
                           />
                         </TableCell>
                       </TableRow>

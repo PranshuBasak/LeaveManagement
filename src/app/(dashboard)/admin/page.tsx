@@ -93,53 +93,61 @@ const page = async () => {
   ];
 
   return (
-    <div className="space-y-8 mt-12">
-      <div className="flex flex-col space-y-2">
-        <h1 className="text-3xl font-bold">{companyName} Dashboard</h1>
-        <p className="text-gray-500">Manage your company and employees</p>
+    <div className="relative space-y-10 mt-14 px-4 max-w-7xl mx-auto">
+      {/* Accent Bar */}
+      <div className="absolute left-0 right-0 -top-8 flex justify-center z-10">
+        {/* <div className="h-2 w-screen rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 shadow-lg"></div> */}
       </div>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="flex flex-col space-y-1 md:space-y-2 items-center">
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white drop-shadow-sm text-center">
+          {companyName} Dashboard
+        </h1>
+        <p className="text-lg text-gray-500 dark:text-gray-400 text-center">
+          Manage your company and employees
+        </p>
+      </div>
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
         {data?.map((item) => {
           return (
-            <Card key={item.title}>
-              <CardContent className="p-6">
-                <p className="text-sm text-gray-500">{item.title}</p>
-                <h3 className="text-2xl font-semibold">{item.data}</h3>
+            <Card key={item.title} className="shadow-md border-0 bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+              <CardContent className="p-8 flex flex-col items-center justify-center">
+                <p className="text-base font-medium text-gray-500 dark:text-gray-400 mb-2">{item.title}</p>
+                <h3 className="text-4xl font-bold text-gray-900 dark:text-white">{item.data}</h3>
               </CardContent>
             </Card>
           );
         })}
       </div>
-      <div className="grid gap-6 md:grid-cols-3">
-        <Card>
+      <div className="grid gap-8 md:grid-cols-3">
+        <Card className="shadow-sm border-0">
           <CardHeader>
-            <CardTitle>Leave requests</CardTitle>
-            <CardDescription>Manage employee Leave requests</CardDescription>
+            <CardTitle className="text-xl font-semibold">Leave requests</CardTitle>
+            <CardDescription className="text-gray-500 dark:text-gray-400">Manage employee Leave requests</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="flex flex-col space-y-2">
-              <Button asChild>
+            <div className="flex flex-col space-y-3">
+              <Button asChild size="lg" className="w-full">
                 <Link href="/admin/time-off-requests">View all requests</Link>
               </Button>
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="shadow-sm border-0">
           <CardHeader>
-            <CardTitle>Company Settings</CardTitle>
-            <CardDescription>Manage company configuration</CardDescription>
+            <CardTitle className="text-xl font-semibold">Company Settings</CardTitle>
+            <CardDescription className="text-gray-500 dark:text-gray-400">Manage company configuration</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="flex flex-col space-y-2">
-              <Button asChild>
+            <div className="flex flex-col space-y-3">
+              <Button asChild size="lg" className="w-full">
                 <Link href="/admin/company-settings">General settings</Link>
               </Button>
-              <Button asChild>
+              <Button asChild size="lg" className="w-full">
                 <Link href="/admin/company-settings/holidays">
                   Company Holidays
                 </Link>
               </Button>
-              <Button asChild>
+              <Button asChild size="lg" className="w-full">
                 <Link href="/admin/company-settings/working-days">
                   Working Days
                 </Link>
@@ -147,20 +155,20 @@ const page = async () => {
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="shadow-sm border-0">
           <CardHeader>
-            <CardTitle>Team management</CardTitle>
-            <CardDescription>Manage your company&apos;s team</CardDescription>
+            <CardTitle className="text-xl font-semibold">Team management</CardTitle>
+            <CardDescription className="text-gray-500 dark:text-gray-400">Manage your company&apos;s team</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="flex flex-col space-y-2">
-              <Button asChild>
+            <div className="flex flex-col space-y-3">
+              <Button asChild size="lg" className="w-full">
                 <Link href="/admin/employees">View Employees</Link>
               </Button>
-              <Button asChild>
+              <Button asChild size="lg" className="w-full">
                 <Link href="/admin/invitation-codes">Invitation Codes</Link>
               </Button>
-              <p className="text-sm text-gray-500 mt-2">
+              <p className="text-base text-gray-500 dark:text-gray-400 mt-3 text-center">
                 You have {activeInvitationCodesCount} active invitation code
                 {activeInvitationCodesCount !== 1 ? "s" : ""}.
               </p>

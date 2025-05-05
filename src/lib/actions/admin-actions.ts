@@ -2,6 +2,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { prisma } from "../prisma";
 import { revalidatePath } from "next/cache";
+import { UserRole } from "@prisma/client";
 
 export async function updateCompanyProfile({
   name,
@@ -285,44 +286,53 @@ export async function updateCompanyHoliday({
 
 export async function updateEmployeeAllowance({
   employeeId,
+  firstName,
+  lastName,
+  department,
+  role,
   availableDays,
 }: {
   employeeId: string;
+  firstName: string;
+  lastName: string;
+  department: string;
+  role: UserRole;
   availableDays: number;
 }) {
   try {
     const { userId } = await auth();
-
     if (!userId) {
-      return { error: "Unauthorised" };
-    }
-
-    const adminUser = await prisma.user.findUnique({
-      where: {
-        clerkId: userId,
-      },
-    });
-
-    if (!adminUser || adminUser.role !== "ADMIN") {
       throw new Error("Unauthorized");
     }
+    const admin = await prisma.user.findUnique({
+      where: { clerkId: userId },
+      select: { companyId: true, role: true },
+    });
+    if (!admin || admin.role !== "ADMIN") {
+      throw new Error("Unauthorized");
+    }
+    const employee = await prisma.user.findUnique({
+      where: { id: employeeId },
+      select: { companyId: true },
+    });
+    if (!employee || employee.companyId !== admin.companyId) {
+      throw new Error("You can only update employees in your own company");
+    }
     await prisma.user.update({
-      where: {
-        id: employeeId,
-      },
+      where: { id: employeeId },
       data: {
+        firstName,
+        lastName,
+        department,
+        role,
         availableDays,
       },
     });
-
     revalidatePath("/admin/employees/allowance");
-
-    return {
-      success: true,
-    };
+    return { success: true };
   } catch (error) {
     console.error(error);
-    throw new Error("Failed to update employee allowance");
+    return { success: false };
   }
 }
 

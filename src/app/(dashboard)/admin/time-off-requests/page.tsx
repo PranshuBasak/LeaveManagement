@@ -42,7 +42,13 @@ const page = async () => {
   return (
     <div className="space-y-8 mt-12">
       <div className="flex flex-col space-y-2">
-        <h1 className="text-3xl font-bold">Leave requests</h1>
+        <span className="flex justify-between ">
+          <h1 className="text-3xl font-bold">Leave requests</h1>
+            
+            <Button asChild variant={"outline"}>
+              <Link href={"/admin"}>Back to dashboard</Link>
+            </Button>
+          </span>
         <p className="text-gray-500">View and manage all Leave requests</p>
       </div>
       <Card>

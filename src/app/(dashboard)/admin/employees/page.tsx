@@ -47,8 +47,15 @@ const Page = async () => {
     <div className="space-y-8 mt-12">
       <div className="flex flex-col space-y-6">
         <div className="flex flex-col space-y-2">
+          <span className="flex justify-between ">
           <h1 className="text-3xl font-bold">Employees</h1>
-          <p className="text-gray-500">Manage employee accounts</p>
+            
+            <Button asChild variant={"outline"}>
+              <Link href={"/admin"}>Back to dashboard</Link>
+            </Button>
+          </span>
+            <p className="text-gray-500">Manage employee accounts</p>
+          
         </div>
         <Card>
           <CardContent>
